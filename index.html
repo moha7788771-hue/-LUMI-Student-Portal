@@ -773,15 +773,49 @@ const dashboard = document.getElementById("dashboard");
 const dashboardBack = document.getElementById("dashboardBack");
 const dashboardContent = document.getElementById("dashboardContent");
 
+// CONTINUE TO DASHBOARD
 continueButton.addEventListener("click", function() {
     welcomeCard.style.display = "none";
     dashboard.style.display = "block";
 });
 
+// LOG OUT
 dashboardBack.addEventListener("click", function() {
     dashboard.style.display = "none";
     loginCard.style.display = "block";
 });
+
+// DASHBOARD PAGES
+function showPage(page) {
+    const pages = {
+        home: `
+            <h2>Welcome Back! ✦</h2>
+            <p>Your academic journey starts here.</p>
+        `,
+        students: `
+            <h2>Students</h2>
+            <p>Manage student information.</p>
+            <p>Total Students: 10</p>
+        `,
+        courses: `
+            <h2>Courses</h2>
+            <p>Programming</p>
+            <p>Mathematics</p>
+            <p>Physics</p>
+        `,
+        grades: `
+            <h2>Grades</h2>
+            <p>Your academic results will appear here.</p>
+        `,
+        settings: `
+            <h2>Settings</h2>
+            <p>Account Settings</p>
+            <p>Portal Preferences</p>
+        `
+    };
+
+    dashboardContent.innerHTML = pages[page] || pages.home;
+}
 </script>
 </body>
 </html>
