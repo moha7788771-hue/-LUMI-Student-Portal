@@ -515,12 +515,53 @@ label {
             We are glad to have you with us.
         </p>
         <button type="button" class="back-btn" id="backButton">
+            <button type="button" id="continueButton">
+    CONTINUE →
+</button>
             BACK TO SIGN IN
         </button>
         <div class="footer">
             LUMI STUDENT PORTAL · YOUR JOURNEY STARTS HERE
         </div>
     </section>
+   <!-- DASHBOARD PAGE -->
+<section id="dashboard" class="card" style="display:none;">
+
+    <div class="brand">
+        <div class="brand-icon">L</div>
+        <div>
+            <div class="brand-name">LUMI</div>
+            <div class="brand-subtitle">STUDENT PORTAL</div>
+        </div>
+    </div>
+
+    <h1>Dashboard ✦</h1>
+    <p>Welcome to your student space.</p>
+
+    <input
+        type="text"
+        id="dashboardSearch"
+        placeholder="Search..."
+    >
+
+    <div class="dashboard-menu">
+        <button onclick="showPage('home')">HOME</button>
+        <button onclick="showPage('students')">STUDENTS</button>
+        <button onclick="showPage('courses')">COURSES</button>
+        <button onclick="showPage('grades')">GRADES</button>
+        <button onclick="showPage('settings')">SETTINGS</button>
+    </div>
+
+    <div id="dashboardContent">
+        <h2>Welcome Back!</h2>
+        <p>Your academic journey starts here.</p>
+    </div>
+
+    <button type="button" id="dashboardBack">
+        LOG OUT
+    </button>
+
+</section>
 </main>
 <script>
 const loginForm = document.getElementById("loginForm");
@@ -726,6 +767,20 @@ backButton.addEventListener("click", function() {
 /* DEMO BUTTON */
 forgotButton.addEventListener("click", function() {
     alert("Password recovery is not connected in this demo.");
+});
+const continueButton = document.getElementById("continueButton");
+const dashboard = document.getElementById("dashboard");
+const dashboardBack = document.getElementById("dashboardBack");
+const dashboardContent = document.getElementById("dashboardContent");
+
+continueButton.addEventListener("click", function() {
+    welcomeCard.style.display = "none";
+    dashboard.style.display = "block";
+});
+
+dashboardBack.addEventListener("click", function() {
+    dashboard.style.display = "none";
+    loginCard.style.display = "block";
 });
 </script>
 </body>
